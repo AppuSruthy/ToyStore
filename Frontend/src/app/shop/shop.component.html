@@ -1,0 +1,67 @@
+
+<div class="card-body">
+	<div class="card-header">
+		{{title}}
+	</div>
+	<div class="card-body">
+
+
+        <mat-grid-list  cols="6" rowHeight="320px">
+			<mat-grid-tile class="mat-grid-tile"  *ngFor="let p of products,let i=index">
+
+                <mat-card>
+
+
+					<div><img mat-card-image class=" img" src="{{p.imageUrl}}"  > </div>
+
+					<mat-card-title>{{p.productName}}</mat-card-title>
+					<div class="content">
+                        <mat-card-subtitle>Price:{{ p.price}}</mat-card-subtitle>
+						<mat-card-subtitle>Star Rating:{{p.starRating}}</mat-card-subtitle>
+					</div>
+					<mat-card-actions>
+						<!-- <p>Quanity Added {{qa}} </p> -->
+						<button *ngIf="!(conditionToDisaply && getQuantity(i)>0)" mat-raised-button color="primary" class="btn btn-primary btn-size" (click)="addToCart(i,p.productId)"> Add to Cart</button>
+
+            <!-- //hidden buttons to add and delete -->
+						<span *ngIf="(conditionToDisaply &&getQuantity(i)>0)">
+                <button mat-raised-button color="accent" class="btn-size-small" (click)="removeFromCart(i,p.id)"> - </button>
+                  <label class="label-small">Items in Cart {{getQuantity(i)}} </label>
+                <button mat-raised-button color="accent" class="btn-size-small" (click)="addToCart(i,p.id)" > + </button>
+            </span>
+					</mat-card-actions>
+				</mat-card>
+            </mat-grid-tile>
+
+		</mat-grid-list>
+        
+    
+
+
+
+
+
+
+
+
+
+
+<!-- <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+        bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card> -->

@@ -1,0 +1,23 @@
+body{
+    background-color:orchid ;
+}
+.img{
+
+    height: 150px;
+    width: 150px;
+    margin: 10px
+   
+   }
+   mat-card{
+       padding:-100px;
+   }
+
+   .mat-grid-tile{
+    padding-top: 24px !important;
+    padding: 24px !important;
+    margin: 20px;
+   }
+
+   mat-form-field {
+    width: 100%
+  }
